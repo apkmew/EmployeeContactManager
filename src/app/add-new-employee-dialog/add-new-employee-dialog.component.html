@@ -1,0 +1,87 @@
+<h2 mat-dialog-title>
+  {{ mode === 'edit' ? 'Edit employee' : 'Add new employee' }}
+</h2>
+
+<mat-dialog-content>
+  <form #employeeForm="ngForm" class="form-container">
+    <!-- Name -->
+    <p>Name</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Firstname Surname</mat-label>
+      <input
+        matInput
+        [(ngModel)]="employee.name"
+        name="name"
+        required
+        #nameCtrl="ngModel"
+      />
+      <mat-hint *ngIf="nameCtrl.invalid && nameCtrl.touched" class="error">
+        Please enter a name
+      </mat-hint>
+    </mat-form-field>
+
+    <!-- Email -->
+    <p>Email</p>
+    <mat-form-field appearance="fill">
+      <mat-label>example&#64;domain.com</mat-label>
+      <input
+        matInput
+        [(ngModel)]="employee.email"
+        name="email"
+        required
+        email
+        #emailCtrl="ngModel"
+      />
+      <mat-hint *ngIf="emailCtrl.hasError('required') && emailCtrl.touched" class="error">
+        Please enter an email
+      </mat-hint>
+      <mat-hint *ngIf="emailCtrl.hasError('email') && emailCtrl.touched" class="error">
+        Email format is not valid
+      </mat-hint>
+    </mat-form-field>
+
+    <!-- Phone -->
+    <p>Phone Number</p>
+    <mat-form-field appearance="fill">
+      <mat-label>+66 00-0000000</mat-label>
+      <input
+        matInput
+        [(ngModel)]="employee.phone_number"
+        name="phone_number"
+        required
+        #phoneCtrl="ngModel"
+      />
+      <mat-hint *ngIf="phoneCtrl.invalid && phoneCtrl.touched" class="error">
+        Please enter a phone number
+      </mat-hint>
+    </mat-form-field>
+
+    <!-- Job Title -->
+    <p>Job Title</p>
+    <mat-form-field appearance="fill">
+      <mat-label>eg. Software Engineer</mat-label>
+      <input
+        matInput
+        [(ngModel)]="employee.job_title"
+        name="job_title"
+        required
+        #jobCtrl="ngModel"
+      />
+      <mat-hint *ngIf="jobCtrl.invalid && jobCtrl.touched" class="error">
+        Please enter a job title
+      </mat-hint>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onSave()"
+    [disabled]="!employeeForm.valid"
+  >
+    Save
+  </button>
+</mat-dialog-actions>
