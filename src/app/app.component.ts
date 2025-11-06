@@ -31,7 +31,7 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         const index = this.employees.indexOf(employee);
-        this.employees[index] = result; // Upda
+        this.employees[index] = result; // Update the employee details
       }
     });
   }

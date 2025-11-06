@@ -1,12 +1,69 @@
-table {
-  position: relative;
-  z-index: 0;
+/* --- Layout หลัก --- */
+main {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-button {
-  position: relative;
-  z-index: 1;
+/* --- ตาราง --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
 }
-table, tr, td, th {
-  border: 1px solid red;
+
+th {
+  text-align: left;
+  background: #1976d2;
+  color: white;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* --- ปุ่ม Edit / Delete --- */
+button[mat-icon-button] {
+  margin: 0 4px;
+  transition: background-color 0.2s ease;
+}
+
+button[mat-icon-button]:hover {
+  background-color: rgba(25, 118, 210, 0.1);
+}
+
+/* --- ปุ่ม Add New Employee --- */
+.add-button {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-button button {
+  background-color: #1976d2;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  transition: background-color 0.2s ease;
+}
+
+.add-button button:hover {
+  background-color: #115293;
 }

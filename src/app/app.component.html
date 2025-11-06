@@ -1,33 +1,36 @@
-<table>
-  <thead>
-    <tr>
-      <th>Employee Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-      <th>Job Title</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let employee of employees">
-      <td>{{employee.name}}</td>
-      <td>{{employee.email}}</td>
-      <td>{{employee.phone_number}}</td>
-      <td>{{employee.job_title}}</td>
-      <td>
-        <button mat-icon-button color="primary" (click)="onEdit(employee)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </td>
-      <td>
-        <button mat-icon-button color="warn" (click)="onDelete(employee)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Job Title</th>
+        <th style="text-align: center;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.phone_number }}</td>
+        <td>{{ employee.job_title }}</td>
+        <td style="text-align: center;">
+          <button mat-icon-button color="primary" (click)="onEdit(employee)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="onDelete(employee)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<button type="button" (click)="openDialog()">
-  <mat-icon>add</mat-icon> 
-</button>
-Add New Employee
+  <div class="add-button">
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+      Add New Employee
+    </button>
+  </div>
+</main>
